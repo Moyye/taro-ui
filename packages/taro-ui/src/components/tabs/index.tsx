@@ -55,7 +55,9 @@ export default class AtTabs extends React.Component<AtTabsProps, AtTabsState> {
         }
         case Taro.ENV_TYPE.WEB: {
           const index = Math.max(idx - 1, 0)
-          const prevTabItem = this.tabHeaderRef.childNodes[index]
+          const prevTabItem = document.getElementById(
+            `tab${this._tabId}${index}`
+          )
           prevTabItem &&
             this.setState({
               _scrollTop: prevTabItem.offsetTop,
